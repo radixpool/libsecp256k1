@@ -19,7 +19,10 @@ jobs:
       - run: make
       - run:
           name: Run tests
-          command: mix test
+          command: |
+            output=$(mix eunit -v -p)
+            echo "$output"
+            echo "$output" | grep "All [[:digit:]]* tests passed\."
       - save_cache:
           key: v1-dependency-cache-{{ arch }}-{{ checksum "mix.lock" }}
           paths:
