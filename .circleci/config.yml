@@ -15,7 +15,6 @@ jobs:
            - v1-dependency-cache
       - run: mix local.hex --force
       - run: mix deps.get
-      - run: mix deps.compile
       - run: make
       - run:
           name: Run tests
